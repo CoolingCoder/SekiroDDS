@@ -6,6 +6,7 @@ from support import *
 from weapon import Weapon
 from ui import UI
 from enemy import Enemy
+from memento import Memento
 
 class Level:    #PONER QUE RECUPERE LA LISTA DE LOS PERSONAJES Y EL STATUS
     ''' clase para el nivel del juego '''
@@ -147,6 +148,11 @@ class Level:    #PONER QUE RECUPERE LA LISTA DE LOS PERSONAJES Y EL STATUS
             #aqui guardar
         #guardar en el memento la salud y el weapon index
         #guardar tambien el status del miniboss
+
+    def save_stats(self) -> Memento:
+        ''' Funcion para '''
+        return Memento(self.player.health,self.player.weapon_index,self.mini_boss_status,self.finalboss_status)
+
 
     def run(self)->None:
         ''' Update and draw the game '''

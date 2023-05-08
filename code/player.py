@@ -35,8 +35,8 @@ class Player(Entity):
         self.switch_duration_cooldown = 200
         
         #Stats
-        self.stats = {'health' : health,'energy':60,'attack':5,'speed':5}
-        self.health = self.stats['health']
+        self.stats = {'health' : 100,'energy':60,'attack':5,'speed':5}
+        self.health = health
         self.max_energy = self.stats['energy']
         self.energy = self.max_energy
         self.speed = self.stats['speed']

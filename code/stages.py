@@ -10,7 +10,7 @@ from ui import UI
 from enemy import Enemy
 
 class Main_map(Level):
-    def __init__(self, player_pos: tuple,health = 100,weapon_index = 0,miniboss = False,finalboss = False) -> None:   #CAMBIAR A TRUE MINIBOSS
+    def __init__(self, player_pos: tuple,health = 100,weapon_index = 0,miniboss = True,finalboss = False) -> None:   #CAMBIAR A TRUE MINIBOSS
         super().__init__(player_pos,health,weapon_index,miniboss,finalboss)
         self.visible_sprites = YSortCameraGroup('graficos/map/map.png')
         self.create_map()

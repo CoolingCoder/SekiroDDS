@@ -34,9 +34,9 @@ enemy_data = {
 }
 
 weapon_data = {
-    'sword': {'damage':50,'graphic':'graficos/weapons/sword/full.png'},
-    'lance': {'damage':10,'graphic':'graficos/weapons/lance/full.png'},
-    'axe': {'damage':22,'graphic':'graficos/weapons/axe/full.png'},
-    'rapier': {'damage':20,'graphic':'graficos/weapons/rapier/full.png'},
-    'sai': {'damage':28,'graphic':'graficos/weapons/sai/full.png'}
+    'sword': {'damage':30,'graphic':'graficos/weapons/sword/full.png'},
+    'lance': {'damage':20,'graphic':'graficos/weapons/lance/full.png'},
+    'axe': {'damage':26,'graphic':'graficos/weapons/axe/full.png'},
+    'rapier': {'damage':30,'graphic':'graficos/weapons/rapier/full.png'},
+    'sai': {'damage':35,'graphic':'graficos/weapons/sai/full.png'}
 }
