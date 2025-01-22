@@ -32,7 +32,7 @@ class Game:
 
         self.end = True     #FLAGS PARA QUE SE REPRODUZCA UNICAMENTE UNA ANIMACION FINAL
         self.easter_egg = True
-        self.win = True
+        self.win = True 
         
         self.font = pygame.font.Font(UI_FONT,150)
         self.font2 = pygame.font.Font(UI_FONT,30)
@@ -44,8 +44,9 @@ class Game:
     def start_game(self) -> None:
         ''' Funcion para iniciar el juego'''
         self.bg_Music.play(loops=-1)
-        #self.level = Samurai()
-        self.level = Mini_boss()
+        self.level = Samurai()
+        
+
 
     def get_text(self,msg:str,color,type) -> tuple:
         ''' Funcion para obtener el texto centrado en la pantalla'''
@@ -122,17 +123,21 @@ class Game:
                     player_pos = (1220,3800)
                 else:
                     player_pos = (1410,1545)
+                Memento = self.level.save_stats()
                 del self.level
-                self.level = Main_map(player_pos)
+                self.level = Main_map(player_pos,Memento._player_health,Memento._weapon_index,Memento._mini_boss_status,Memento._finalboss_status)
             elif self.level.where_2_change == 1:
+                Memento = self.level.save_stats()
                 del self.level
-                self.level = Samurai()
+                self.level = Samurai((0,0),Memento._player_health,Memento._weapon_index,Memento._mini_boss_status,Memento._finalboss_status)  
             elif self.level.where_2_change == 2:
+                Memento = self.level.save_stats()
                 del self.level
-                self.level = Mini_boss()
+                self.level = Mini_boss((0,0),Memento._player_health,Memento._weapon_index,Memento._mini_boss_status,Memento._finalboss_status)
             else:
+                Memento = self.level.save_stats()
                 del self.level
-                self.level = Easter_egg()
+                self.level = Easter_egg((0,0),Memento._player_health,Memento._weapon_index,Memento._mini_boss_status,Memento._finalboss_status)
 
     def run(self) -> None:
         ''' Método para ejecutar el juego '''
@@ -159,9 +164,3 @@ class Game:
 if __name__ == '__main__':
     game = Game()
     game.run()
-
-#Cuando toque las puertas, que detecte colisión con ellas y te lleve al nivel
-#Del mini boss no podrás salir hasta derrotarlo o morir
-#Despues del mini boss soltará la espada mortal, al recogerla se modificará el string del mapa para desaparecer la barrera
-#del boss final
-#Al matar al boss final deberá ponerse GG!

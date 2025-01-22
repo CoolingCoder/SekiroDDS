@@ -10,7 +10,7 @@ from ui import UI
 from enemy import Enemy
 
 class Main_map(Level):
-    def __init__(self, player_pos: tuple,health = 100,weapon_index = 0,miniboss = False,finalboss = False) -> None:   #CAMBIAR A TRUE MINIBOSS
+    def __init__(self, player_pos: tuple,health = 100,weapon_index = 0,miniboss = True,finalboss = False) -> None:   #CAMBIAR A TRUE MINIBOSS
         super().__init__(player_pos,health,weapon_index,miniboss,finalboss)
         self.visible_sprites = YSortCameraGroup('graficos/map/map.png')
         self.create_map()
@@ -122,14 +122,6 @@ class Mini_boss(Level):
                                     (x,y),
                                     [self.visible_sprites,self.attackable_sprites],
                                     self.obstacle_sprites,self.damage_player)                           
-    def player_attack_logic(self) -> None:
-        ''' Metodo para atacar a los enemigos'''
-        if self.attack_sprites:
-            for attack_sprite in self.attack_sprites:
-                collision_sprites = pygame.sprite.spritecollide(attack_sprite,self.attackable_sprites,False)
-                if collision_sprites:
-                    for target_sprite in collision_sprites:
-                        target_sprite.get_damage(self.player)
 
     def update_miniboss_stage(self) -> None:
         ''' Metodo para actualizar la arena en caso de haber derrotado al boss'''
